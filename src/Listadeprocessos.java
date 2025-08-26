@@ -1,6 +1,6 @@
 public class Listadeprocessos {
-    private Noprocesso inicio;
-    private Noprocesso fim;
+    private NoProcesso inicio;
+    private NoProcesso fim;
     private int tamanho;
 
     public Listadeprocessos() {
@@ -8,8 +8,8 @@ public class Listadeprocessos {
         this.fim = null;
         this.tamanho = 0;
     }
-    public void adicionarNoFinal(Processo processoNovo) {
-        Noprocesso novoNo = new Noprocesso(processoNovo);
+    public void adicionarNoFinal(Processo processo) {
+        NoProcesso novoNo = new NoProcesso (processo);
         if (this.inicio == null) {
             this.inicio = novoNo;
             this.fim = novoNo;
