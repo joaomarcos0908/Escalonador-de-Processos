@@ -13,6 +13,4 @@ public Processo (int id,String nome, int prioridade, int ciclos_necessarios,Stri
      this.recurso_necessario=recurso_necessario;
 
 }
-
-
 }
