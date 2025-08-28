@@ -8,8 +8,9 @@ public class Listadeprocessos {
         this.fim = null;
         this.tamanho = 0;
     }
+
     public void adicionarNoFinal(Processo processo) {
-        NoProcesso novoNo = new NoProcesso (processo);
+        NoProcesso novoNo = new NoProcesso(processo);
         if (this.inicio == null) {
             this.inicio = novoNo;
             this.fim = novoNo;
@@ -18,8 +19,23 @@ public class Listadeprocessos {
             this.fim = novoNo;
 
         }
-            this.tamanho++;
+        this.tamanho++;
 
+    }
+
+    public Processo removerDoInicio() {
+        if (this.inicio == null) {
+            throw new RuntimeException("fila vazia!");
         }
+
+    Processo p= this.inicio.processo;
+    this.inicio= this.inicio.proximoNo;
+   if(this.inicio== null){
+       this.fim=null;
+   }
+this.tamanho--;
+   return p;
+    }
+
     }
 
