@@ -23,7 +23,7 @@ public class Listadeprocessos {
 
     public Processo removerDoInicio() {
         if (this.inicio == null) {
-            throw new RuntimeException("fila vazia!");
+           return null;
         }
         Processo p = this.inicio.processo;
         this.inicio = this.inicio.proximoNo;
