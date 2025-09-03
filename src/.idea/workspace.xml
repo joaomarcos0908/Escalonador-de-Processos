@@ -7,6 +7,7 @@
     <list default="true" id="4730790f-bebb-49cd-b3fa-f69bc7fa2d2d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Listadeprocessos.java" beforeDir="false" afterPath="$PROJECT_DIR$/Listadeprocessos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Processo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Processo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +58,13 @@
       <workItem from="1756167367908" duration="20000" />
       <workItem from="1756421334056" duration="2000" />
       <workItem from="1756421343299" duration="2466000" />
-      <workItem from="1756423893396" duration="945000" />
+      <workItem from="1756423893396" duration="3336000" />
+      <workItem from="1756755488852" duration="15000" />
+      <workItem from="1756755528033" duration="9000" />
+      <workItem from="1756756664758" duration="7000" />
+      <workItem from="1756756695977" duration="1000" />
+      <workItem from="1756850096384" duration="623000" />
+      <workItem from="1756856399002" duration="4051000" />
     </task>
     <servers />
   </component>
