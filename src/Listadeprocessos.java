@@ -1,36 +1,39 @@
 import java.sql.SQLOutput;
 
 public class Listadeprocessos {
-    private NoProcesso inicio;
-    private NoProcesso fim;
+    private NoProcesso cabeca;
+    private NoProcesso cauda;
     private int tamanho;
 
     public Listadeprocessos() {
-        this.inicio = null;
-        this.fim = null;
+        this.cabeca = null;
+        this.cauda = null;
         this.tamanho = 0;
     }
 
     public void adicionarNoFinal(Processo processo) {
         NoProcesso novoNo = new NoProcesso(processo);
-        if (this.inicio == null) {
-            this.inicio = novoNo;
-            this.fim = novoNo;
+        if (this.cabeca == null) {
+            this.cabeca = novoNo;
+            this.cauda = novoNo;
+            cauda.proximo=this.cabeca;
         } else {
-            this.fim.proximoNo = novoNo;
-            this.fim = novoNo;
+            this.cauda.proximo = novoNo;
+            this.cauda = novoNo;
+            cauda.proximo=this.cabeca;
         }
         this.tamanho++;
     }
 
     public Processo removerDoInicio() {
-        if (this.inicio == null) {
+        if (this.cabeca == null) {
             return null;
         }
-        Processo p = this.inicio.processo;
-        this.inicio = this.inicio.proximoNo;
-        if (this.inicio == null) {
-            this.fim = null;
+        Processo p = this.cabeca.processo;
+        this.cabeca = this.cabeca.proximo;
+        if (this.cabeca == null) {
+            this.cauda= null;
+            cauda.proximo=this.cabeca;
         }
         this.tamanho--;
         return p;
@@ -41,7 +44,7 @@ public class Listadeprocessos {
     }
 
     public boolean estaVazia() {
-        if (this.inicio == null) {
+        if (this.cabeca == null) {
             return true;
         } else {
             return false;
@@ -52,7 +55,7 @@ public class Listadeprocessos {
         if (estaVazia()) {
             return null;
         }
-        return this.inicio.processo;
+        return this.cabeca.processo;
     }
 
     public void imprimirLista() {
@@ -60,7 +63,7 @@ public class Listadeprocessos {
             System.out.println("Lista vazia");
             return;
         }
-        NoProcesso cursor = this.inicio;
+        NoProcesso cursor = this.cabeca;
         StringBuilder TextoDaLista = new StringBuilder();
 
         TextoDaLista.append("[");
@@ -70,10 +73,10 @@ public class Listadeprocessos {
                     .append("(")
                     .append(cursor.processo.getCiclo_necessarios())
                     .append(")");
-            if (cursor.proximoNo != null) {
+            if (cursor.proximo != null) {
                 TextoDaLista.append(", ");
             }
-            cursor = cursor.proximoNo;
+            cursor = cursor.proximo;
         }
         TextoDaLista.append("]");
         System.out.println(TextoDaLista.toString());

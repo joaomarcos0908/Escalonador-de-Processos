@@ -1,9 +1,9 @@
 public class NoProcesso {
     Processo  processo;
-    NoProcesso proximoNo;
+    NoProcesso proximo;
     public NoProcesso(Processo processo) {
         this.processo = processo;
-        this.proximoNo = null;
+        this.proximo = null;
 
     }
 }
