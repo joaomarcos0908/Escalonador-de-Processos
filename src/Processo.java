@@ -17,7 +17,19 @@ public Processo (int id,String nome, int prioridade, int ciclos_necessarios,Stri
         return nome;
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public int getCiclo_necessarios() {
         return ciclo_necessarios;
+    }
+
+    public int getPrioridade() {
+        return prioridade;
+    }
+
+    public void setPrioridade(int prioridade) {
+        this.prioridade = prioridade;
     }
 }
