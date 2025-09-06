@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Listadeprocessos.java" beforeDir="false" afterPath="$PROJECT_DIR$/Listadeprocessos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Processo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Processo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Scheduler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +65,10 @@
       <workItem from="1756756664758" duration="7000" />
       <workItem from="1756756695977" duration="1000" />
       <workItem from="1756850096384" duration="623000" />
-      <workItem from="1756856399002" duration="4051000" />
+      <workItem from="1756856399002" duration="5612000" />
+      <workItem from="1756990270558" duration="6000" />
+      <workItem from="1757115546582" duration="2299000" />
+      <workItem from="1757120246178" duration="3562000" />
     </task>
     <servers />
   </component>

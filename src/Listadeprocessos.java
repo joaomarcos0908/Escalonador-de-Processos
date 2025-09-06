@@ -16,11 +16,11 @@ public class Listadeprocessos {
         if (this.cabeca == null) {
             this.cabeca = novoNo;
             this.cauda = novoNo;
-            cauda.proximo=this.cabeca;
+            this.cauda.proximo=this.cabeca;
         } else {
             this.cauda.proximo = novoNo;
             this.cauda = novoNo;
-            cauda.proximo=this.cabeca;
+            this.cauda.proximo=this.cabeca;
         }
         this.tamanho++;
     }
@@ -33,7 +33,7 @@ public class Listadeprocessos {
         this.cabeca = this.cabeca.proximo;
         if (this.cabeca == null) {
             this.cauda= null;
-            cauda.proximo=this.cabeca;
+            this.cauda.proximo=this.cabeca;
         }
         this.tamanho--;
         return p;
