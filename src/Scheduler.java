@@ -30,6 +30,7 @@ public Scheduler(){
     public void  executarCicloDeCPU() {
         if (!listaBloqueados.estaVazia()) {
             Processo desbloquear = listaBloqueados.removerDoInicio();
+            System.out.println(" Processo " + desbloquear.getNome() + " foi desbloqueado e voltou para a fila.");
             adicionarProcesso(desbloquear);
         }
 
@@ -56,18 +57,24 @@ public Scheduler(){
             }
         }
         if (atual != null) {
+            System.out.println("Executando processo: " + atual.getNome() +
+                    " | Prioridade: " + atual.getPrioridade() +
+                    " | Ciclos restantes: " + atual.getCiclo_necessarios());
             if (atual.getRecurso_necessario() != null && atual.getRecurso_necessario().equals("DISCO")) {
                 atual.setRecurso_necessario(null);
                 this.listaBloqueados.adicionarNoFinal(atual);
+                System.out.println("⏸ Processo " + atual.getNome() + " foi bloqueado (esperando DISCO).");
             } else {
                 atual.setCiclo_necessarios(atual.getCiclo_necessarios() - 1);
                 if (atual.getCiclo_necessarios() <= 0) {
-
+                    System.out.println("Processo " + atual.getNome() + " terminou a execução!");
                 } else {
                     this.adicionarProcesso(atual);
 
                 }
             }
+        }else{
+            System.out.println("nenhum processo foi encontrado para executar nesse ciclo.");
         }
     }
  }
