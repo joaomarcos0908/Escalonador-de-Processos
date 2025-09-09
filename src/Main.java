@@ -1,7 +1,60 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class Main {
     public static void main(String[] args) {
+        if (args.length < 1) {
+            System.out.println("Uso: java Main <arquivo_processos.txt>");
+            return;
+        }
 
-    }
+        String nomeArquivo = args[0];
+        Scheduler scheduler = new Scheduler();
+
+        try (BufferedReader br = new BufferedReader(new FileReader(nomeArquivo))) {
+            String linha;
+            while ((linha = br.readLine()) != null) {
+                String[] partes = linha.split(",");
+                int id = Integer.parseInt(partes[0]);
+                String nome = partes[1];
+                int prioridade = Integer.parseInt(partes[2]);
+                int ciclos = Integer.parseInt(partes[3]);
+                String recurso = partes[4].equals("NENHUM") ? null : partes[4];
+
+                Processo p = new Processo(id, nome, prioridade, ciclos, recurso);
+                scheduler.adicionarProcesso(p);
+            }
+        } catch (IOException e) {
+            System.out.println("Erro ao ler o arquivo: " + e.getMessage());
+            return;
+        }
+
+        int ciclo = 1;
+        while (true) {
+            System.out.println("\n=== CICLO " + ciclo + " ===");
+            scheduler.executarCicloDeCPU();
+
+            System.out.print("Alta prioridade: ");
+            scheduler.listaAltaPrioridade.imprimirLista();
+
+            System.out.print("Média prioridade: ");
+            scheduler.listaMediaPrioridade.imprimirLista();
+
+            System.out.print("Baixa prioridade: ");
+            scheduler.listadeBaixaPrioridade.imprimirLista();
+
+            System.out.print("Bloqueados: ");
+            scheduler.listaBloqueados.imprimirLista();
+
+            ciclo++;
+
+            if (scheduler.listaAltaPrioridade.estaVazia() &&
+                    scheduler.listaMediaPrioridade.estaVazia() &&
+                    scheduler.listadeBaixaPrioridade.estaVazia() &&
+                    scheduler.listaBloqueados.estaVazia()) {
+                System.out.println("\nTodos os processos foram finalizados!");
+                break;
+            }
+}
 }

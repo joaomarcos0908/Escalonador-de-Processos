@@ -67,17 +67,17 @@ public class Listadeprocessos {
         StringBuilder TextoDaLista = new StringBuilder();
 
         TextoDaLista.append("[");
-        while (cursor != null) {
+        do {
 
             TextoDaLista.append(cursor.processo.getNome())
                     .append("(")
                     .append(cursor.processo.getCiclo_necessarios())
                     .append(")");
-            if (cursor.proximo != null) {
+            cursor = cursor.proximo;
+            if (cursor != this.cabeca) {
                 TextoDaLista.append(", ");
             }
-            cursor = cursor.proximo;
-        }
+        }while (cursor != this.cabeca);
         TextoDaLista.append("]");
         System.out.println(TextoDaLista.toString());
     }
