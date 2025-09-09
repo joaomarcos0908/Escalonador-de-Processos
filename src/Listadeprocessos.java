@@ -13,26 +13,30 @@ public class Listadeprocessos {
 
     public void adicionarNoFinal(Processo processo) {
         NoProcesso novoNo = new NoProcesso(processo);
-        if (this.cabeca == null) {
+        if (this.estaVazia()) {
             this.cabeca = novoNo;
             this.cauda = novoNo;
-            this.cauda.proximo=this.cabeca;
         } else {
             this.cauda.proximo = novoNo;
             this.cauda = novoNo;
-            this.cauda.proximo=this.cabeca;
         }
+        this.cauda.proximo=this.cabeca;
         this.tamanho++;
     }
 
     public Processo removerDoInicio() {
-        if (this.cabeca == null) {
+        if (this.estaVazia()) {
             return null;
         }
         Processo p = this.cabeca.processo;
-        this.cabeca = this.cabeca.proximo;
-        if (this.cabeca == null) {
+
+
+        if (this.cabeca ==this.cauda) {
+            this.cabeca=null;
             this.cauda= null;
+
+        }else{
+            this.cabeca=this.cabeca.proximo;
             this.cauda.proximo=this.cabeca;
         }
         this.tamanho--;
