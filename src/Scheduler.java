@@ -13,7 +13,7 @@ public Scheduler(){
     this.contadorCiclosAltaPrioridade=0;
 }
  public void adicionarProcesso(Processo p) {
-     switch (p.getPrioridade()) {
+     switch (p.getPrioridade_original()) {
          case 1:
              listaAltaPrioridade.adicionarNoFinal(p);
              break;
