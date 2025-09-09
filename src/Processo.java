@@ -2,18 +2,24 @@ public class Processo {
      private int id;
      private String nome;
      private int prioridade;
-     private int ciclo_necessarios;
+    private int prioridade_original;
+    private int ciclo_necessarios;
      private String recurso_necessario;
      private String status;
 
-public Processo (int id,String nome, int prioridade, int ciclos_necessarios,String recurso_necessario){
+public Processo (int id,String nome, int prioridade, int ciclos_necessarios,String recurso_necessario) {
     this.id=id;
     this.nome=nome;
      this.prioridade=prioridade;
      this.ciclo_necessarios=ciclos_necessarios;
      this.recurso_necessario=recurso_necessario;
      this.status= "PRONTO";
+     this.prioridade_original=this.prioridade;
+
 }
+    public int getPrioridade_original() {
+        return prioridade_original;
+    }
 
     public String getNome() {
         return nome;
