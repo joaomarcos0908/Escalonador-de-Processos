@@ -77,6 +77,25 @@ public Scheduler(){
             System.out.println("nenhum processo foi encontrado para executar nesse ciclo.");
         }
     }
+    public void imprimirFilas() {
+        System.out.println("Alta prioridade");
+        this.listaAltaPrioridade.imprimirLista();
+
+        System.out.println("Media prioridade");
+        this.listaMediaPrioridade.imprimirLista();
+
+        System.out.println("Baixa prioridade");
+        this.listadeBaixaPrioridade.imprimirLista();
+
+        System.out.println("Bloqueados");
+        this.listaBloqueados.imprimirLista();
+    }
+    public boolean trabalhoFinalizado() {
+        return this.listaAltaPrioridade.estaVazia() &&
+                this.listaMediaPrioridade.estaVazia() &&
+                this.listadeBaixaPrioridade.estaVazia() &&
+                this.listaBloqueados.estaVazia();
+    }
  }
 
 
