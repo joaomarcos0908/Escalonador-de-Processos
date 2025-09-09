@@ -35,26 +35,15 @@ public class Main {
             System.out.println("\n=== CICLO " + ciclo + " ===");
             scheduler.executarCicloDeCPU();
 
-            System.out.print("Alta prioridade: ");
-            scheduler.listaAltaPrioridade.imprimirLista();
-
-            System.out.print("Média prioridade: ");
-            scheduler.listaMediaPrioridade.imprimirLista();
-
-            System.out.print("Baixa prioridade: ");
-            scheduler.listadeBaixaPrioridade.imprimirLista();
-
-            System.out.print("Bloqueados: ");
-            scheduler.listaBloqueados.imprimirLista();
+            scheduler.imprimirFilas();
 
             ciclo++;
 
-            if (scheduler.listaAltaPrioridade.estaVazia() &&
-                    scheduler.listaMediaPrioridade.estaVazia() &&
-                    scheduler.listadeBaixaPrioridade.estaVazia() &&
-                    scheduler.listaBloqueados.estaVazia()) {
+            if (scheduler.trabalhoFinalizado()) {
                 System.out.println("\nTodos os processos foram finalizados!");
                 break;
             }
-}
+        }
+
+    }
 }

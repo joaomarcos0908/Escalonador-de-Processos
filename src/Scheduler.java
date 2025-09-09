@@ -96,6 +96,7 @@ public Scheduler(){
                 this.listadeBaixaPrioridade.estaVazia() &&
                 this.listaBloqueados.estaVazia();
     }
- }
+
+}
 
 
