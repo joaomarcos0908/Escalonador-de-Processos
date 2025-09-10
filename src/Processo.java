@@ -44,6 +44,9 @@ public Processo (int id,String nome, int prioridade, int ciclos_necessarios,Stri
     public String getStatus() {
         return status;
     }
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public void setCiclo_necessarios(int ciclo_necessarios) {
         this.ciclo_necessarios = ciclo_necessarios;
