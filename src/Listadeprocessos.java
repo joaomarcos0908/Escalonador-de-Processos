@@ -20,7 +20,7 @@ public class Listadeprocessos {
             this.cauda.proximo = novoNo;
             this.cauda = novoNo;
         }
-        this.cauda.proximo=this.cabeca;
+        this.cauda.proximo = this.cabeca;
         this.tamanho++;
     }
 
@@ -31,13 +31,13 @@ public class Listadeprocessos {
         Processo p = this.cabeca.processo;
 
 
-        if (this.cabeca ==this.cauda) {
-            this.cabeca=null;
-            this.cauda= null;
+        if (this.cabeca == this.cauda) {
+            this.cabeca = null;
+            this.cauda = null;
 
-        }else{
-            this.cabeca=this.cabeca.proximo;
-            this.cauda.proximo=this.cabeca;
+        } else {
+            this.cabeca = this.cabeca.proximo;
+            this.cauda.proximo = this.cabeca;
         }
         this.tamanho--;
         return p;
@@ -69,22 +69,24 @@ public class Listadeprocessos {
         }
         NoProcesso cursor = this.cabeca;
         StringBuilder TextoDaLista = new StringBuilder();
-
         TextoDaLista.append("[");
-        do {
 
+
+        int contador = 0;
+        do {
             TextoDaLista.append(cursor.processo.getNome())
                     .append("(")
                     .append(cursor.processo.getCiclo_necessarios())
                     .append(")");
             cursor = cursor.proximo;
-            if (cursor != this.cabeca) {
+            contador++;
+            if (contador < this.tamanho) {
                 TextoDaLista.append(", ");
             }
-        }while (cursor != this.cabeca);
+        } while (contador < this.tamanho);
+
         TextoDaLista.append("]");
         System.out.println(TextoDaLista.toString());
     }
 }
-
 
