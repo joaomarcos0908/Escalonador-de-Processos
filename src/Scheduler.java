@@ -24,13 +24,13 @@ public Scheduler(){
              listadeBaixaPrioridade.adicionarNoFinal(p);
              break;
          default:
-             System.out.println("prioridade inválida" + p.getNome());
+             System.out.println("ERRO! Prioridade inválida" + p.getNome());
      }
  }
     public void  executarCicloDeCPU() {
         if (!listaBloqueados.estaVazia()) {
             Processo desbloquear = listaBloqueados.removerDoInicio();
-            System.out.println(" Processo " + desbloquear.getNome() + " foi desbloqueado e voltou para a fila.");
+            System.out.println("DESBLOQUEIO:" + desbloquear.getNome() + " foi desbloqueado e voltou para a fila.");
             adicionarProcesso(desbloquear);
         }
 
@@ -57,38 +57,45 @@ public Scheduler(){
             }
         }
         if (atual != null) {
-            System.out.println("Executando processo: " + atual.getNome() +
+            System.out.println("EXECUTANDO PROCESSO: " + atual.getNome() +
                     " | Prioridade: " + atual.getPrioridade() +
                     " | Ciclos restantes: " + atual.getCiclo_necessarios());
             if (atual.getRecurso_necessario() != null && atual.getRecurso_necessario().equals("DISCO")) {
                 atual.setRecurso_necessario(null);
                 this.listaBloqueados.adicionarNoFinal(atual);
-                System.out.println("⏸ Processo " + atual.getNome() + " foi bloqueado (esperando DISCO).");
+                System.out.println("BLOQUEADO: " + atual.getNome() + "aguarda recurso DISCO - Movido para fila de bloqueados");
             } else {
                 atual.setCiclo_necessarios(atual.getCiclo_necessarios() - 1);
                 if (atual.getCiclo_necessarios() <= 0) {
-                    System.out.println("Processo " + atual.getNome() + " terminou a execução!");
+                    System.out.println("CONCLUIDO: " + atual.getNome() + "finalizou sua execução!");
                 } else {
                     this.adicionarProcesso(atual);
-
+                    System.out.println("ROTAÇÃO: " + atual.getNome() + " retornou ao final da fila [ainda precisa de " + atual.getCiclo_necessarios() + " ciclos]");
                 }
             }
         }else{
-            System.out.println("nenhum processo foi encontrado para executar nesse ciclo.");
+            System.out.println("Nenhum processo disponível para execução neste ciclo.");
         }
     }
     public void imprimirFilas() {
-        System.out.println("Alta prioridade");
+        System.out.println("\n" + "─".repeat(80));
+        System.out.println("STATUS DAS FILAS DE PROCESSOS");
+        System.out.println("─".repeat(80));
+
+        System.out.println("ALTA PRIORIDADE:");
         this.listaAltaPrioridade.imprimirLista();
 
-        System.out.println("Media prioridade");
+        System.out.println("MÉDIA PRIORIDADE:");
         this.listaMediaPrioridade.imprimirLista();
 
-        System.out.println("Baixa prioridade");
+        System.out.println("BAIXA PRIORIDADE:");
         this.listadeBaixaPrioridade.imprimirLista();
 
-        System.out.println("Bloqueados");
+        System.out.println("BLOQUEADOS:");
         this.listaBloqueados.imprimirLista();
+
+        System.out.println("─".repeat(80));
+
     }
     public boolean trabalhoFinalizado() {
         return this.listaAltaPrioridade.estaVazia() &&
