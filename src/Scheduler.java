@@ -67,7 +67,7 @@ public Scheduler(){
             } else {
                 atual.setCiclo_necessarios(atual.getCiclo_necessarios() - 1);
                 if (atual.getCiclo_necessarios() <= 0) {
-                    System.out.println("CONCLUIDO: " + atual.getNome() + "finalizou sua execução!");
+                    System.out.println("CONCLUIDO: " + atual.getNome() + " finalizou sua execução!");
                 } else {
                     this.adicionarProcesso(atual);
                     System.out.println("ROTAÇÃO: " + atual.getNome() + " retornou ao final da fila [ainda precisa de " + atual.getCiclo_necessarios() + " ciclos]");
