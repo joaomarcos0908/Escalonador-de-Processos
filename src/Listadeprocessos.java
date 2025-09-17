@@ -85,6 +85,7 @@ public class Listadeprocessos {
         } while (contador < this.tamanho);
 
         TextoDaLista.append("]");
+        System.out.println(TextoDaLista.toString());
     }
 }
 
