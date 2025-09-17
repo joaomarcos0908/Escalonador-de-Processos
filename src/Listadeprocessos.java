@@ -15,11 +15,10 @@ public class Listadeprocessos {
         NoProcesso novoNo = new NoProcesso(processo);
         if (this.estaVazia()) {
             this.cabeca = novoNo;
-            this.cauda = novoNo;
         } else {
             this.cauda.proximo = novoNo;
-            this.cauda = novoNo;
         }
+        this.cauda = novoNo;
         this.cauda.proximo = this.cabeca;
         this.tamanho++;
     }
@@ -86,7 +85,6 @@ public class Listadeprocessos {
         } while (contador < this.tamanho);
 
         TextoDaLista.append("]");
-        System.out.println(TextoDaLista.toString());
     }
 }
 
